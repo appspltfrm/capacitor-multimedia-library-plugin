@@ -1,0 +1,1 @@
+{"version":3,"file":"MultimediaLibraryWebPlugin.js","sourceRoot":"","sources":["../../src/MultimediaLibraryWebPlugin.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,SAAS,EAAC,MAAM,iBAAiB,CAAC;AAI1C,MAAM,OAAO,0BAA2B,SAAQ,SAAS;IAExD,SAAS,CAAC,KAAqC;QAC9C,MAAM,IAAI,KAAK,CAAC,yBAAyB,CAAC,CAAC;IAC5C,CAAC;IAED,SAAS,CAAC,KAAqC;QAC9C,MAAM,IAAI,KAAK,CAAC,yBAAyB,CAAC,CAAC;IAC5C,CAAC;CACD"}
