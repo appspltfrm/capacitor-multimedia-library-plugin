@@ -10,7 +10,7 @@ public class MultimediaLibraryPlugin: CAPPlugin {
         var status: PHAuthorizationStatus;
         
         if #available(iOS 14, *) {
-            status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
+            status = PHPhotoLibrary.authorizationStatus(for: .readWrite)
         } else {
             status = PHPhotoLibrary.authorizationStatus()
         };
@@ -21,7 +21,7 @@ public class MultimediaLibraryPlugin: CAPPlugin {
         } else if (status == PHAuthorizationStatus.notDetermined) {
 
             if #available(iOS 14, *) {
-                PHPhotoLibrary.requestAuthorization(for: .addOnly) {status in
+                PHPhotoLibrary.requestAuthorization(for: .readWrite) {status in
                     if (status == PHAuthorizationStatus.authorized) {
                         self.doSaveImage(call);
                     } else {
@@ -52,7 +52,7 @@ public class MultimediaLibraryPlugin: CAPPlugin {
         var status: PHAuthorizationStatus;
         
         if #available(iOS 14, *) {
-            status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
+            status = PHPhotoLibrary.authorizationStatus(for: .readWrite)
         } else {
             status = PHPhotoLibrary.authorizationStatus()
         };
@@ -63,7 +63,7 @@ public class MultimediaLibraryPlugin: CAPPlugin {
         } else if (status == PHAuthorizationStatus.notDetermined) {
 
             if #available(iOS 14, *) {
-                PHPhotoLibrary.requestAuthorization(for: .addOnly) {status in
+                PHPhotoLibrary.requestAuthorization(for: .readWrite) {status in
                     if (status == PHAuthorizationStatus.authorized) {
                         self.doSaveVideo(call);
                     } else {
