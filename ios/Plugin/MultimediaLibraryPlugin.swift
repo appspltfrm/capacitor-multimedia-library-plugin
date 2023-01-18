@@ -90,7 +90,7 @@ public class MultimediaLibraryPlugin: CAPPlugin {
     }
 
     func rejectNotAuthorized(_ call: CAPPluginCall) {
-        call.reject("Not authorized to access multimedia library");
+        call.reject("@appspltfrm/capacitor-multimedia-library-plugin/MissingPermissionError");
     }
 
     func doSaveImage(_ call: CAPPluginCall) {
