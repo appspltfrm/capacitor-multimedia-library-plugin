@@ -7,19 +7,36 @@ public class MultimediaLibraryPlugin: CAPPlugin {
 
     @objc func saveImage(_ call: CAPPluginCall) {
 
-        let status = PHPhotoLibrary.authorizationStatus();
+        var status: PHAuthorizationStatus;
+        
+        if #available(iOS 14, *) {
+            status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
+        } else {
+            status = PHPhotoLibrary.authorizationStatus()
+        };
 
         if (status == PHAuthorizationStatus.authorized) {
             doSaveImage(call);
 
         } else if (status == PHAuthorizationStatus.notDetermined) {
 
-            PHPhotoLibrary.requestAuthorization {status in
-                if (status == PHAuthorizationStatus.authorized) {
-                    self.doSaveImage(call);
-                } else {
-                    self.rejectNotAuthorized(call);
-                    return;
+            if #available(iOS 14, *) {
+                PHPhotoLibrary.requestAuthorization(for: .addOnly) {status in
+                    if (status == PHAuthorizationStatus.authorized) {
+                        self.doSaveImage(call);
+                    } else {
+                        self.rejectNotAuthorized(call);
+                        return;
+                    }
+                }
+            } else {
+                PHPhotoLibrary.requestAuthorization {status in
+                    if (status == PHAuthorizationStatus.authorized) {
+                        self.doSaveImage(call);
+                    } else {
+                        self.rejectNotAuthorized(call);
+                        return;
+                    }
                 }
             }
 
@@ -32,19 +49,36 @@ public class MultimediaLibraryPlugin: CAPPlugin {
 
     @objc func saveVideo(_ call: CAPPluginCall) {
 
-        let status = PHPhotoLibrary.authorizationStatus();
+        var status: PHAuthorizationStatus;
+        
+        if #available(iOS 14, *) {
+            status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
+        } else {
+            status = PHPhotoLibrary.authorizationStatus()
+        };
 
         if (status == PHAuthorizationStatus.authorized) {
             doSaveVideo(call);
 
         } else if (status == PHAuthorizationStatus.notDetermined) {
 
-            PHPhotoLibrary.requestAuthorization {status in
-                if (status == PHAuthorizationStatus.authorized) {
-                    self.doSaveVideo(call);
-                } else {
-                    self.rejectNotAuthorized(call);
-                    return;
+            if #available(iOS 14, *) {
+                PHPhotoLibrary.requestAuthorization(for: .addOnly) {status in
+                    if (status == PHAuthorizationStatus.authorized) {
+                        self.doSaveVideo(call);
+                    } else {
+                        self.rejectNotAuthorized(call);
+                        return;
+                    }
+                }
+            } else {
+                PHPhotoLibrary.requestAuthorization {status in
+                    if (status == PHAuthorizationStatus.authorized) {
+                        self.doSaveVideo(call);
+                    } else {
+                        self.rejectNotAuthorized(call);
+                        return;
+                    }
                 }
             }
 
