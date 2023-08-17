@@ -32,11 +32,6 @@
     "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin && cd ..",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "verify:web": "npm run build",
-    "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
-    "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- autocorrect --format",
-    "eslint": "eslint . --ext ts",
-    "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
-    "swiftlint": "node-swiftlint",
     "docgen": "docgen --api MultimediaLibraryPlugin --output-readme README.md --output-json dist/docs.json",
     "build": "npm run clean && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
@@ -44,28 +39,18 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@capacitor/android": "^4.2.0",
-    "@capacitor/core": "^4.2.0",
-    "@capacitor/docgen": "^0.0.17",
-    "@capacitor/ios": "^4.2.0",
-    "@ionic/eslint-config": "^0.3.0",
-    "@ionic/prettier-config": "^2.0.0",
-    "@ionic/swiftlint-config": "^1.1.2",
-    "eslint": "^7.32.0",
-    "prettier": "^2.4.1",
-    "prettier-plugin-java": "^1.4.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.58.0",
-    "swiftlint": "^1.0.1",
-    "typescript": "^4.4.3"
+    "@capacitor/android": "^5.2.3",
+    "@capacitor/cli": "^5.2.3",
+    "@capacitor/core": "^5.2.3",
+    "@capacitor/docgen": "^0.2.1",
+    "@capacitor/ios": "^5.2.3",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.28.0",
+    "swiftlint": "^1.0.2",
+    "typescript": "^5.1.6"
   },
   "peerDependencies": {
-    "@capacitor/core": "^4.2.0"
-  },
-  "prettier": "@ionic/prettier-config",
-  "swiftlint": "@ionic/swiftlint-config",
-  "eslintConfig": {
-    "extends": "@ionic/eslint-config/recommended"
+    "@capacitor/core": "^5.2.3"
   },
   "capacitor": {
     "ios": {
