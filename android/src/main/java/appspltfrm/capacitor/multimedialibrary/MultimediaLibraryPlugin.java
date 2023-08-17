@@ -58,7 +58,7 @@ public class MultimediaLibraryPlugin extends Plugin {
     protected void storagePermissionCallback(PluginCall call) {
 
         if (getPermissionState("storage") != PermissionState.GRANTED) {
-            call.reject("Permission denied");
+            call.reject("@appspltfrm/capacitor-multimedia-library-plugin/MissingPermissionError");
             return;
         }
 
